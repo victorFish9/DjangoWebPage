@@ -1,0 +1,42 @@
+{% extends 'main/index.html' %}
+{% block title %}Login{% endblock %}
+
+{% block item %}
+<div>
+    <h1>Log in</h1>
+    <div class="myForm">
+    <form method="post" action=".">
+        {% csrf_token %}
+        <div class="formTitle">
+        <label >Username</label><br>
+            </div>
+        <input type="text" name="username">
+
+        <div class="formTitle">
+        <label >Password</label><br>
+            </div>
+        <input type="password" name="password">
+
+        <div class="formTitle">
+            <button>Log in</button>
+            </div>
+
+        {% if f.errors %}
+            {% for field in f %}
+                {% for error in field.errors %}
+                    <div>
+                        <p>{{ error|escape }}</p>
+                    </div>
+                {% endfor %}
+            {% endfor %}
+
+        {% for error in f.non_field_errors %}
+            <div>
+                <p>{{ error|escape }}</p>
+            </div>
+        {% endfor %}
+        {% endif %}
+    </form>
+        </div>
+</div>
+{% endblock %}

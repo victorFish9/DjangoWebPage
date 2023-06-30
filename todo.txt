@@ -1,0 +1,15 @@
+Catalog page
+    -Done Categories choosing by click
+        -Done create design
+    -Done Search bar
+        -Done create design
+    Item page
+        -create design
+Main page
+    -DONE show only 3 latest item order by created_at
+
+General
+    -DONE create sign up
+    -DONE create log in
+Checkout and cart page:
+    -create design

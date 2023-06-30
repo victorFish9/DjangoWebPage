@@ -1,0 +1,6 @@
+<div>
+    <a href="{% url 'item' x.slug %}" class="hover-link" style="text-decoration:none;">
+    <h3>{{ x.name }}</h3>
+    <img src="{{ x.get_thumbnail }}" class="img">
+    </a>
+</div>

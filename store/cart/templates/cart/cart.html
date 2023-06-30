@@ -1,0 +1,37 @@
+{% extends 'main/index.html' %}
+{% block title %}Cart{% endblock %}
+{% block item %}
+
+  <div class="item">
+    <div>
+      <a href="#" >
+        <img src="1.jpg">
+      </a>
+
+      <div>
+        <div>
+          <a href="#">product name</a>
+          <span>10€</span>
+        </div>
+
+        <hr>
+
+        <div>
+          <a href="#">-</a>
+          <span>2</span>
+          <a href="#">+</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="summary">
+    <h2>Summary</h2>
+    <div>
+      <span>Total</span>
+      <span>99€</span>
+    </div>
+
+    <a href="#">Checkout</a>
+  </div>
+
+{% endblock %}

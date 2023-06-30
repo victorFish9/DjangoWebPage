@@ -1,0 +1,55 @@
+{% extends 'main/index.html' %}
+{% block title %}Cart{% endblock %}
+{% block item %}
+
+<h1>Checkout</h1>
+<div class="checkoutForm">
+  <h3>Shipping information</h3>
+  <div>
+  <label>First name</label>
+  <input type="text" class="roundedInput">
+    </div>
+  <div>
+  <label>Last name</label>
+  <input type="text" class="roundedInput">
+    </div>
+  <div>
+  <label>Address</label>
+  <input type="text" class="roundedInput">
+    </div>
+  <div>
+  <label>Zipcode</label>
+  <input type="text" class="roundedInput">
+    </div>
+  <div>
+  <label>City/Place</label>
+  <input type="text" class="roundedInput">
+    </div>
+</div>
+<div class="checkoutForm">
+  <h3>Contact information</h3>
+  <div>
+    <label>Email</label>
+    <input type="email" class="roundedInput">
+  </div>
+  <div>
+    <label>Phone</label>
+    <input type="phone" class="roundedInput">
+  </div>
+
+</div>
+<div>
+  <h3>Payment information</h3>
+</div>
+<div class="moving">
+  <div class="summary">
+    <h2>Summary</h2>
+    <div>
+      <span>Total</span>
+      <span>99€</span>
+    </div>
+
+    <a href="#">Payment</a>
+  </div>
+  </div>
+{% endblock %}

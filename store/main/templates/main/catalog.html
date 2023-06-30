@@ -1,0 +1,32 @@
+{% extends 'main/index.html' %}
+{% block title %}Catalog{% endblock %}
+
+{% block item %}
+<h1>Catalog</h1>
+<div class="search_bar">
+<form method="get" action=".">
+  <div>
+    <input type="text" name="query" class="searchBar" placeholder="Search">
+    <button class="button-35" role="button">Search</button>
+  </div>
+</form>
+<div class="dropdown">
+<a href="{% url 'catalog' %}" style="{% if not active_category %}color: black,{% else %}color:black{% endif %}" class="category_link">All category</a>
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6" width="13px">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 13.5L12 21m0 0l-7.5-7.5M12 21V3" />
+  </svg>
+ <div class="dropdown-content">
+     <ul>
+  {% for y in category %}
+  <li><a href="{% url 'catalog' %}?y={{ y.slug }}" style="{% if y.slug == active_category %}color: black,{% else %}color:black{% endif %}">{{ y.name }}</a></li>
+  {% endfor %}
+      </ul>
+  </div>
+</div>
+</div>
+<div class="container">
+{% for x in item %}
+  {% include 'item/partials/item_list.html' %}
+{% endfor %}
+</div>
+{% endblock %}
