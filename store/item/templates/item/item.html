@@ -9,7 +9,7 @@
 <p>{{ item.price }}</p>
 <a
     href="#"
-    class="."
+    class="CTA_btn"
     hx-get="{% url 'add_to_cart' item.id %}"
     hx-target="#menu-cart-button"
     hx-swap="outerHTML"

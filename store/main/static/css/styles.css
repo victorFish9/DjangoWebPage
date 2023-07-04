@@ -9,14 +9,14 @@ background-attachment: fixed;
 color: white;
 min-height: 500px;
 margin: 10px 10px 10px;
+margin-top: 0px;
 }
 
 .home h2{
-
-    text-transition: uppercase;
+    text-transform: uppercase;
     font-weight: bold;
     text-align: center;
-    color: black;
+    color: white;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 38px;
 }
@@ -30,22 +30,24 @@ body {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    margin-bottom: 90px;
 }
 
 .container div{
     flex-basis: 300px;
     height: 300px;
-    background-color: lightblue;
+    background-color: black;
     margin: 20px;
     border-radius: 30px;
-
-    align-items: center;
+    text-align: center;
 }
 .container div h3{
     font-size: 25px;
     text-align: center;
     padding: 10px;
     margin: 10px auto;
+    color: white;
+    text-transform:uppercase;
 }
 
 .container div p{
@@ -91,7 +93,7 @@ body {
     top: 0px;
     margin-right: 23px;
     text-decoration: none;
-    color: black;
+    color: white;
 }
 
 .sidenav a {
@@ -127,7 +129,9 @@ body {
       }
  }
  footer {
-
+    position: fixed;
+    bottom: 0;
+    width: 100%;
   background-color: #f0f0f0;
   padding: 20px 0;
   margin-top: 50px;
@@ -140,6 +144,10 @@ body {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
+}
+
+.page-container{
+    position: relative;
 }
 .center-section{
 text-align: center;
@@ -228,7 +236,7 @@ text-align: center;
       animation: slideInFromLeft 0.5s ease-in-out;
 }
 .title2 h3{
-    margin: 10px;
+    margin: 0px 10px 10px 10px;
     color:white;
 }
 
@@ -337,13 +345,49 @@ text-align: center;
 }
 .summary{
     display: inline-grid;
+    position: relative;
       background-color: lightgray;
       padding: 15px;
       border-radius: 10px;
       justify-items: center;
-      justify-self: end;
-      margin-left: auto;
+      margin: 10px;
+      margin-bottom: 100px;
 }
+.background{
+    background: url('https://static.fibre2fashion.com/newsresource/images/273/shutterstock-276711206_285085.jpg') no-repeat center;
+    height: 80vh;
+    background-size: cover;
+    background-attachment: fixed;
+
+}
+.user_info{
+
+    margin: 10px;
+    background-color: lightgray;
+    border-radius: 10px;
+}
+.user_info strong{
+    text-transform:uppercase;
+    margin: 10px;
+}
+.user_info a{
+    display: inline-block;
+    text-decoration: none;
+    margin: 5px 10px 5px 10px;
+    border-radius: 20px;
+    background-color: black;
+    color: white;
+    padding: 4px;
+    transition: background-color 0.3s, color 0.3s;
+    width: 47px;
+    text-align: center;
+    text-transform: uppercase;
+}
+.user_info a:hover{
+    background-color: white;
+    color: black;
+}
+
 .summary a {
       text-decoration: none;
       color: black;
@@ -354,6 +398,58 @@ text-align: center;
 }
 .moving{
     display: flex;
+    justify-content: flex-end;
+}
+.CTA_btn{
+      text-align: center;
+      line-height: 100px;
+      text-decoration: none;
+      color: white;
+      transition: background-color 0.3s, color 0.3s;
+}
+.CTA_btn:hover {
+      color: red;
+      border-top: 2px solid white;
+      border-bottom: 2px solid white;
+      transition: color 0.3s, border 0.3s;
+    }
+.all_items{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.item{
+    display: flex;
+    text-align: center;
+    margin: 5px;
+    border-radius: 30PX;
+    background-color: black;
+    color: white;
+    justify-content: space-evenly;
+}
+
+.item .product{
+
+    padding: 10px;
+}
+.cartBtn{
+    position: absolute;
+    color: white;
+    text-decoration: none;
+    margin-top: 10px;
+}
+.header{
+    color: white;
+    background-color: black;
+    text-align: center;
+}
+.item a{
+    text-decoration: none;
+    margin: 1px 1px 1px 1px;
+    color: white;
 }
 @keyframes slideInFromLeft {
       0% {

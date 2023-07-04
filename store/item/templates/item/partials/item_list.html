@@ -2,5 +2,15 @@
     <a href="{% url 'item' x.slug %}" class="hover-link" style="text-decoration:none;">
     <h3>{{ x.name }}</h3>
     <img src="{{ x.get_thumbnail }}" class="img">
+<a
+    href="#"
+    class="CTA_btn"
+    hx-get="{% url 'add_to_cart' x.id %}"
+    hx-target="#menu-cart-button"
+    hx-swap="outerHTML"
+>
+  Add to cart
+</a>
+
     </a>
 </div>

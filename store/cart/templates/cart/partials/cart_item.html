@@ -1,0 +1,25 @@
+<div class="item">
+    <div class="product" id="cart-item-{{ item.item.id }}">
+      <a href="{% url 'item' item.item.slug %}" >
+        <img src="{{ item.item.get_thumbnail }}" class="img">
+      </a>
+      <div>
+        <div>
+
+          <a href="#">{{ item.item.name }}</a><br>
+          <span>{{ item.total_price }}€</span>
+
+        </div>
+
+        <hr>
+
+        <div>
+          <a hx-get="{% url 'update_cart' item.item.id 'decrement' %}" hx-target="#cart-item-{{ item.item.id }}"
+             hx-swap="outerHTML">-</a>
+          <span>{{ item.quantity }}</span>
+          <a hx-get="{% url 'update_cart' item.item.id 'increment' %}" hx-target="#cart-item-{{ item.item.id }}"
+             hx-swap="outerHTML">+</a>
+        </div>
+      </div>
+    </div>
+  </div>

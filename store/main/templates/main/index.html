@@ -9,29 +9,34 @@
     <title>{% block title %}Main{% endblock %}</title>
 </head>
 <body>
-<a class="myspan" onclick="openNav()">&#9776;</a>
+
+
+    <a class="myspan" onclick="openNav()">&#9776;</a>
 <div id="mySidenav" class="sidenav">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
   <a href="{% url 'index' %}">Main</a>
   <a href="{% url 'catalog' %}">Catalog</a>
-  <a href="#">Clients</a>
     {% if request.user.is_authenticated %}
-  <a href="{% url 'logout' %}">Log out</a>
+    <a href="{% url 'myaccount' %}">My account</a>
+    <a href="{% url 'logout' %}">Log out</a>
     {% else %}
     <a href="{% url 'login' %}">Log in</a>
     <a href="{% url 'signup' %}">Sign up</a>
     {% endif %}
 
 </div>
-
+    <div hx-get="{% url 'hx_menu_cart' %}" hx-trigger="update-menu-cart from:body" hx-swap="innerHTML">
 {% include 'cart/partials/menu_cart.html' %}
-
+    </div>
 {% block item %}
+    <div class="background">
 <div class="home" >
     <h2 id="dynamic-title">Welcome</h2>
 
 
     </div>
+</div>
+
 <div class="title2">
     <h3>Last arrivals</h3>
 </div>
@@ -69,6 +74,7 @@
     </div>
   </div>
 </footer>
+
 <script src="https://unpkg.com/htmx.org@1.7.0"></script>
 </body>
 </html>

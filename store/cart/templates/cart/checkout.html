@@ -7,11 +7,11 @@
   <h3>Shipping information</h3>
   <div>
   <label>First name</label>
-  <input type="text" class="roundedInput">
+  <input type="text" class="roundedInput" value="{{ request.user.first_name }}">
     </div>
   <div>
   <label>Last name</label>
-  <input type="text" class="roundedInput">
+  <input type="text" class="roundedInput" {{ request.user.last_name }}>
     </div>
   <div>
   <label>Address</label>
@@ -30,7 +30,7 @@
   <h3>Contact information</h3>
   <div>
     <label>Email</label>
-    <input type="email" class="roundedInput">
+    <input type="email" class="roundedInput" {{ request.user.email }}>
   </div>
   <div>
     <label>Phone</label>
@@ -46,7 +46,7 @@
     <h2>Summary</h2>
     <div>
       <span>Total</span>
-      <span>99€</span>
+      <span>{{ cart.get_total_cost }}€</span>
     </div>
 
     <a href="#">Payment</a>

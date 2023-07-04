@@ -1,0 +1,50 @@
+{% extends 'main/index.html' %}
+{% block title %}My account{% endblock %}
+
+{% block item %}
+<div>
+  <h1 class="header">My account</h1>
+
+  <div class="user_info">
+    <strong>Name: </strong>{{ request.user.get_full_name }}<br>
+    <strong>Username: </strong>{{ request.user.username}}<br>
+    <strong>E-mail: </strong>{{ request.user.email }}<br>
+
+    <a href="{% url 'edit_myaccount' %}">Edit</a>
+  </div>
+
+  <hr>
+
+  <h2>Your orders</h2>
+  <div>
+    <div>
+      <a href="#">Order id: 1</a>
+    </div>
+    <div>
+      <div>
+        <a href="#">
+          <img class="img" src="1.jpg">
+        </a>
+
+        <div>
+          <div>
+            <a href="#">Product name</a>
+
+            <p>10€</p>
+          </div>
+
+          <hr>
+
+          <div>
+            Quantity
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <p>Date: 01.01.1999</p>
+      <p>Total: 100€</p>
+    </div>
+  </div>
+</div>
+{% endblock %}
