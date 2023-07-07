@@ -5,6 +5,7 @@
 <div>
   <h1 class="header">My account</h1>
 
+  {% for order in request.user.orders.all %}
   <div class="user_info">
     <strong>Name: </strong>{{ request.user.get_full_name }}<br>
     <strong>Username: </strong>{{ request.user.username}}<br>
@@ -18,17 +19,18 @@
   <h2>Your orders</h2>
   <div>
     <div>
-      <a href="#">Order id: 1</a>
+      <a href="#">Order id: {{ order.id }}</a>
     </div>
     <div>
+      {% for item in order.items.all %}
       <div>
         <a href="#">
-          <img class="img" src="1.jpg">
+          <img class="img" src="{{ item.product.get_thumbnail }}">
         </a>
 
         <div>
           <div>
-            <a href="#">Product name</a>
+            <a href="#">{{ item.product.name }}</a>
 
             <p>10€</p>
           </div>
@@ -36,15 +38,17 @@
           <hr>
 
           <div>
-            Quantity
+            Quantity: {{ item.quantity }}
           </div>
         </div>
       </div>
+      {% endfor %}
     </div>
     <div>
-      <p>Date: 01.01.1999</p>
+      <p>Date: {{ order.created_at }}</p>
       <p>Total: 100€</p>
     </div>
   </div>
 </div>
+{% endfor %}
 {% endblock %}

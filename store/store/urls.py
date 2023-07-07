@@ -24,6 +24,7 @@ from cart.views import add_to_cart, cart, checkout
 urlpatterns = [
     path('', include('main.urls')),
     path('cart/', include('cart.urls')),
+    path('order/', include('order.urls')),
     path('admin/', admin.site.urls),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

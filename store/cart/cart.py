@@ -52,4 +52,7 @@ class Cart(object):
         return int(sum(item['item'].price * item['quantity'] for item in self.cart.values())) / 1
 
     def get_item(self, item_id):
-        return self.cart[str(item_id)]
+        if item_id in self.cart:
+            return self.cart[str(item_id)]
+        else:
+            return None

@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.shortcuts import render, get_object_or_404
 from django.contrib.auth.decorators import login_required
 # Create your views here.
@@ -22,20 +23,23 @@ def update_cart(request, item_id, action):
         cart.add(item_id, -1, True)
 
     item = Item.objects.get(pk=item_id)
-    quantity = cart.get_item(item_id)['quantity']
+    quantity = cart.get_item(item_id)
 
-
-    item = {
-        'item': {
-            'id': item.id,
-            'name' : item.name,
-            'image': item.image,
-            'get_thumbnail': item.get_thumbnail(),
-            'price' : item.price,
-        },
-        'total_price':(quantity * item.price) / 1,
-        'quantity' : quantity,
-    }
+    if quantity:
+        quantity = quantity['quantity']
+        item = {
+            'item': {
+                'id': item.id,
+                'name' : item.name,
+                'image': item.image,
+                'get_thumbnail': item.get_thumbnail(),
+                'price' : item.price,
+            },
+            'total_price':(quantity * item.price) / 1,
+            'quantity' : quantity,
+        }
+    else:
+        item = None
 
     response = render(request, 'cart/partials/cart_item.html', {'item': item})
 
@@ -45,7 +49,8 @@ def update_cart(request, item_id, action):
 
 @login_required
 def checkout(request):
-    return render(request, 'cart/checkout.html')
+    pub_key = settings.STRIPE_API_KEY_PUBLISHABLE
+    return render(request, 'cart/checkout.html', {'pub_key': pub_key})
 
 def hx_menu_cart(request):
     return render(request, 'cart/partials/menu_cart.html')

@@ -1,4 +1,5 @@
-<div class="item">
+{% if item  %}
+<div class="item" >
     <div class="product" id="cart-item-{{ item.item.id }}">
       <a href="{% url 'item' item.item.slug %}" >
         <img src="{{ item.item.get_thumbnail }}" class="img">
@@ -22,4 +23,6 @@
         </div>
       </div>
     </div>
+  <script src="https://unpkg.com/htmx.org@1.7.0"></script>
+{% endif %}
   </div>
