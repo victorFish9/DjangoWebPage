@@ -14,7 +14,7 @@ def start_order(request):
     cart = Cart(request)
     data = json.loads(request.body)
     total_price = 0
-
+#
     items = []
 
     for item in cart:
