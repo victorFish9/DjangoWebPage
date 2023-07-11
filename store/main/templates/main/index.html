@@ -9,9 +9,17 @@
     <title>{% block title %}Main{% endblock %}</title>
 </head>
 <body>
-
-
-    <a class="myspan" onclick="openNav()">&#9776;</a>
+    <a class="btn" onclick="openNav()">
+    <span class="icon">
+        <svg viewBox="0 0 175 80" width="40" height="40">
+            <rect width="80" height="15" fill="#f0f0f0" rx="10"></rect>
+            <rect y="30" width="80" height="15" fill="#f0f0f0" rx="10"></rect>
+            <rect y="60" width="80" height="15" fill="#f0f0f0" rx="10"></rect>
+        </svg>
+    </span>
+    <span class="text" style="color: white;">MENU</span>
+</a>
+    <!--<a class="myspan" onclick="openNav()">&#9776;</a>-->
 <div id="mySidenav" class="sidenav">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
   <a href="{% url 'index' %}">Main</a>
@@ -28,6 +36,7 @@
     <div hx-get="{% url 'hx_menu_cart' %}" hx-trigger="update-menu-cart from:body" hx-swap="innerHTML">
 {% include 'cart/partials/menu_cart.html' %}
     </div>
+
 {% block item %}
     <div class="background">
 <div class="home" >

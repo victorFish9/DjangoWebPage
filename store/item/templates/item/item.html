@@ -1,13 +1,14 @@
 {% extends 'main/index.html' %}
 {% block title %}{{ item.name }}{% endblock %}
 {% block item %}
-<h1>{{ item.name }}</h1>
+<h1 class="header">{{ item.name }}</h1>
 <div class="box">
 <p>{{ item.description }}</p>
 <img src="{{ item.image.url }}" class="img_item">
     </div>
-<p>{{ item.price }}</p>
-<a
+<div class="price_btn">
+<p >{{ item.price }}€</p>
+<!--<a
     href="#"
     class="CTA_btn"
     hx-get="{% url 'add_to_cart' item.id %}"
@@ -15,5 +16,18 @@
     hx-swap="outerHTML"
 >
   Add to cart
-</a>
+</a>-->
+
+    <button
+    href="#"
+    class="CTA_btn"
+    hx-get="{% url 'add_to_cart' item.id %}"
+    hx-target="#menu-cart-button"
+    hx-swap="outerHTML"
+    >
+    <span class="box2">
+        Add to cart!
+    </span>
+</button>
+    </div>
 {% endblock %}
