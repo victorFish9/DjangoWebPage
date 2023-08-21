@@ -26,6 +26,9 @@ class Order(models.Model):
     paid_amount = models.IntegerField(blank=True, null=True)
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, default=ORDERED)
 
+    def fixed_price(self):
+        return self.paid_amount / 100
+
 class OrderItem(models.Model):
     order = models.ForeignKey(Order, related_name='items', on_delete=models.CASCADE)
     product = models.ForeignKey(Item, related_name='items', on_delete=models.CASCADE)

@@ -3,6 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.shortcuts import render, redirect
 from item.models import Item, Category
+from order.models import Order
 
 from .forms import SignUpForm
 
@@ -53,6 +54,9 @@ def signup(request):
 
 @login_required
 def myaccount(request):
+    order = Order.objects.all()
+
+
     return render(request, 'main/myaccount.html')
 
 @login_required

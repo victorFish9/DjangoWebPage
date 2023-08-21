@@ -7,27 +7,17 @@
 <img src="{{ item.image.url }}" class="img_item">
     </div>
 <div class="price_btn">
-<p >{{ item.price }}€</p>
-<!--<a
-    href="#"
-    class="CTA_btn"
-    hx-get="{% url 'add_to_cart' item.id %}"
-    hx-target="#menu-cart-button"
-    hx-swap="outerHTML"
->
-  Add to cart
-</a>-->
-
+<p >{{ item.get_display_price }}€</p>
     <button
     href="#"
-    class="CTA_btn"
+    class="btn_login"
     hx-get="{% url 'add_to_cart' item.id %}"
     hx-target="#menu-cart-button"
     hx-swap="outerHTML"
     >
-    <span class="box2">
+
         Add to cart!
-    </span>
+
 </button>
     </div>
 {% endblock %}

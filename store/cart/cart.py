@@ -17,7 +17,7 @@ class Cart(object):
             self.cart[str(p)]['item'] = Item.objects.get(pk=p)
 
         for item in self.cart.values():
-            item['total_price'] = int(item['item'].price * item['quantity']) / 1
+            item['total_price'] = int(item['item'].price * item['quantity']) / 100
             yield item
 
     def __len__(self):
@@ -49,7 +49,7 @@ class Cart(object):
     def get_total_cost(self):
         for p in self.cart.keys():
             self.cart[str(p)]['item'] = Item.objects.get(pk=p)
-        return int(sum(item['item'].price * item['quantity'] for item in self.cart.values())) / 1
+        return int(sum(item['item'].price * item['quantity'] for item in self.cart.values())) / 100
 
     def get_item(self, item_id):
         if item_id in self.cart:

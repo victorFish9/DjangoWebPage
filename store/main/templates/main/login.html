@@ -3,22 +3,22 @@
 
 {% block item %}
 <div>
-    <h1>Log in</h1>
+    <h1 class="header">Log in</h1>
     <div class="myForm">
     <form method="post" action=".">
         {% csrf_token %}
-        <div class="formTitle">
+        <div class="inputGroup">
+        <input type="text" name="username" required="">
         <label >Username</label><br>
-            </div>
-        <input type="text" name="username">
+        </div>
 
-        <div class="formTitle">
+        <div class="inputGroup">
+        <input type="password" name="password" required="">
         <label >Password</label><br>
             </div>
-        <input type="password" name="password">
 
         <div class="formTitle">
-            <button>Log in</button>
+            <button class="btn_login">Log in</button>
             </div>
 
         {% if f.errors %}
